@@ -42,7 +42,7 @@ if (Check-Malware) {
     } else {
         Write-Host "Windows is not activated. Activating..." -ForegroundColor Yellow
         cscript.exe "$env:SystemRoot\System32\slmgr.vbs" /ipk W269N-WFGWX-YVC9B-4J6C9-T83GX | Out-Null
-        cscript.exe "$env:SystemRoot\System32\slmgr.vbs" /skms kms.tsforge.net | Out-Null
+        cscript.exe "$env:SystemRoot\System32\slmgr.vbs" /skms kms.digiboy.ir | Out-Null
         cscript.exe "$env:SystemRoot\System32\slmgr.vbs" /ato | Out-Null
         Write-Host "`nActivation result:"
         cscript.exe "$env:SystemRoot\System32\slmgr.vbs" /xpr
