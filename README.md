@@ -22,4 +22,11 @@ irm https://raw.githubusercontent.com/ranusTeam41/kinovrise/refs/heads/main/Kino
 
 If you cannot do method 1 as above, then we come to method 2: use KinovRise.exe, download it from the Release section, then run with administrator rights and activate as usual.
 
+### Note !!
+
+Note: The license will be renewed for 180 days when the user activates, then it will be renewed by the client connecting to the KinovRise server. If after 180 days the system does not renew, the user will reactivate to use! If the license activation fails, the user will use the Troubleshooter to Active Windows with the KinovRise license. Thank you!
+
+### Not supporting versions
+Some versions are not supported: updating !!
+
 <p align="center">From RanusTeam : Made with Love ❤️</p>
