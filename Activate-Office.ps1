@@ -64,7 +64,7 @@ if (Check-Malware) {
         Write-Host "Retail Office detected. Activating..." -ForegroundColor Yellow
         cscript.exe //nologo $ospp /unpkey:XXXXX | Out-Null
         cscript.exe //nologo $ospp /inpkey:FXYTK-NJJ8C-GB6DW-3DYQT-6F7TH | Out-Null
-        cscript.exe //nologo $ospp /sethst:kms.tsforge.net | Out-Null
+        cscript.exe //nologo $ospp /sethst:kms.digiboy.ir | Out-Null
         cscript.exe //nologo $ospp /act | Out-Null
         Write-Host "`nOffice Activation Status:"
         cscript.exe //nologo $ospp /dstatus
