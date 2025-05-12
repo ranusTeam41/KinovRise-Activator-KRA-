@@ -10,6 +10,12 @@ echo [3] Exit
 echo ============================================
 set /p choice=Enter your choice: 
 
+if "%choice%"=="" (
+    echo Please enter a valid choice!
+    timeout /t 1 >nul
+    goto MENU
+)
+
 if "%choice%"=="1" (
     powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/ranusTeam41/kinovrise/main/Activate-Windows.ps1 | iex"
     pause
@@ -23,6 +29,7 @@ if "%choice%"=="2" (
 if "%choice%"=="3" (
     exit
 )
+
 echo Invalid choice. Try again.
-pause
+timeout /t 1 >nul
 goto MENU
