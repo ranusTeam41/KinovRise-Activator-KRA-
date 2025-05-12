@@ -10,9 +10,9 @@ for ($i=0; $i -lt $menu.Count; $i++) {
 }
 $choice = Read-Host "Chọn chức năng (1-${($menu.Count)})"
 if ($choice -notmatch '^[1-3]$') { Write-Host "Sai lựa chọn!"; exit }
-$encUrl = "https://raw.githubusercontent.com/ranusTeam41/kinovrise/main/" + $menu[$choice-1].EncFile
+$encUrl = "https://github.com/ranusTeam41/kinovrise" + $menu[$choice-1].EncFile
 
-$key = "j5rD4N!8xQw@2eTfZlVmAsYuGkLpOiRe" # Key bí mật, KHÔNG tiết lộ ra ngoài!
+$key = "j5rD4N!8xQw@2eTfZlVmAsYuGkLpOiRe" 
 
 try {
     $enc = Invoke-RestMethod -Uri $encUrl
