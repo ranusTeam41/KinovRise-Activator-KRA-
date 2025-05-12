@@ -1,10 +1,6 @@
 
-
-
-$menuBat = "$env:TEMP\KinovRiseMenu.bat"
-
-
-$batchCode = @"
+$batPath = "$env:TEMP\KinovRiseMenu.bat"
+$batContent = @"
 @echo off
 :MENU
 cls
@@ -35,17 +31,8 @@ pause
 goto MENU
 "@
 
-
-Set-Content -Path $menuBat -Value $batchCode -Encoding ASCII
-
-
-if ($env:ComSpec -ne $null -and $env:ComSpec.ToLower().Contains("cmd.exe")) {
-    # Đã ở CMD, chạy menu luôn
-    cmd.exe /c `"$menuBat`"
-} else {
-
-    Start-Process "cmd.exe" -ArgumentList "/c `"$menuBat`""
-}
+Set-Content -Path $batPath -Value $batContent -Encoding ASCII
 
 
+Start-Process "cmd.exe" -ArgumentList "/c `"$batPath`""
 exit
