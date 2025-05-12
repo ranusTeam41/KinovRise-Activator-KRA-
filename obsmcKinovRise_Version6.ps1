@@ -1,39 +1,48 @@
-# English menu, strong error handling, and decode AES-256
+# English menu, input validation, loop until Exit
 
 $menu = @(
     @{Name="Activate Windows"; EncFile="Active-Windows.enc"},
     @{Name="Activate Office";  EncFile="Active-Office.enc"},
-    @{Name="KinovRise Tool";   EncFile="KinovRise.enc"}
+    @{Name="Exit"; EncFile=""}
 )
 
-Write-Host "========= KinovRise Loader ========="
-for ($i=0; $i -lt $menu.Count; $i++) {
-    Write-Host ("({0}) {1}" -f ($i+1), $menu[$i].Name)
+function Show-Menu {
+    Write-Host "`n========= KinovRise Loader ========="
+    for ($i=0; $i -lt $menu.Count; $i++) {
+        Write-Host ("({0}) {1}" -f ($i+1), $menu[$i].Name)
+    }
+    Write-Host "(q) Back to menu"
 }
-$choice = Read-Host "Select a function (1-${($menu.Count)})"
-if ($choice -notmatch '^[1-3]$') { Write-Host "Invalid selection! Exiting."; exit }
-$encUrl = "https://github.com/ranusTeam41/kinovrise/main" + $menu[$choice-1].EncFile
 
-$key = "j5rD4N!8xQw@2eTfZlVmAsYuGkLpOiRe" # Must be exactly 32 characters
+while ($true) {
+    Show-Menu
+    $choice = Read-Host "Select a function (1-${($menu.Count)})"
+    if ($choice -eq 'q') { continue }
+    if ($choice -eq '3') { Write-Host "Exit."; break }
+    if ($choice -notmatch '^[1-2]$') { Write-Host "Invalid!"; continue }
 
-try {
-    $enc = Invoke-RestMethod -Uri $encUrl
-    if ([string]::IsNullOrEmpty($enc)) { throw "Encrypted file is empty or missing!" }
-    $raw = [Convert]::FromBase64String($enc)
-    $iv = $raw[0..15]
-    $data = $raw[16..($raw.Length-1)]
-    $aes = [Security.Cryptography.Aes]::Create()
-    $aes.Key = [Text.Encoding]::UTF8.GetBytes($key)
-    $aes.IV = $iv
-    $aes.Mode = "CBC"
-    $aes.Padding = "PKCS7"
-    $decryptor = $aes.CreateDecryptor()
-    $plaintext = $decryptor.TransformFinalBlock($data, 0, $data.Length)
-    Invoke-Expression ([Text.Encoding]::UTF8.GetString($plaintext))
-} catch {
-    Write-Host "ERROR: Failed to download or decrypt the script. Please check:" -ForegroundColor Red
-    Write-Host " - Your internet connection"
-    Write-Host " - That the encrypted file exists on GitHub"
-    Write-Host " - That the decryption key is correct and matches the encryption key"
-    Write-Host "Details: $_"
+    $encFile = $menu[$choice-1].EncFile
+    if ([string]::IsNullOrEmpty($encFile)) { Write-Host "Exit."; break }
+
+    $encUrl = "https://raw.githubusercontent.com/ranusTeam41/kinovrise/main/$encFile"
+    $key = "j5rD4N!8xQw@2eTfZlVmAsYuGkLpOiRe" # Must be exactly 32 characters
+
+    try {
+        $enc = Invoke-RestMethod -Uri $encUrl
+        if ([string]::IsNullOrEmpty($enc)) { throw "Encrypted file is empty or missing!" }
+        $raw = [Convert]::FromBase64String($enc)
+        $iv = $raw[0..15]
+        $data = $raw[16..($raw.Length-1)]
+        $aes = [Security.Cryptography.Aes]::Create()
+        $aes.Key = [Text.Encoding]::UTF8.GetBytes($key)
+        $aes.IV = $iv
+        $aes.Mode = "CBC"
+        $aes.Padding = "PKCS7"
+        $decryptor = $aes.CreateDecryptor()
+        $plaintext = $decryptor.TransformFinalBlock($data, 0, $data.Length)
+        Invoke-Expression ([Text.Encoding]::UTF8.GetString($plaintext))
+    } catch {
+        Write-Host "ERROR: Failed to download or decrypt the script." -ForegroundColor Red
+        Write-Host "Details: $_"
+    }
 }
