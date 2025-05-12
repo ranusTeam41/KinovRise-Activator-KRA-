@@ -16,7 +16,9 @@ function Check-Malware {
         "C:\Windows\System32\Tasks\KMSpico"
     )
     foreach ($item in $malwareIndicators) {
-        if ((Test-Path $item) -or (Get-Process -ErrorAction SilentlyContinue | Where-Object { $_.ProcessName -eq [System.IO.Path]::GetFileNameWithoutExtension($item) })) {
+        $fileExists = Test-Path $item
+        $procExists = Get-Process -ErrorAction SilentlyContinue | Where-Object { $_.ProcessName -eq ([System.IO.Path]::GetFileNameWithoutExtension($item)) }
+        if ($fileExists -or $procExists) {
             Write-Host "Warning: Potential malware detected ($item). Activation aborted." -ForegroundColor Red
             pause
             exit
