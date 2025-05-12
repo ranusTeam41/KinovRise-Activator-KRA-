@@ -24,7 +24,6 @@ function Check-Malware {
     }
     Write-Host "No malware detected. Proceeding with activation..." -ForegroundColor Green
 }
-
 Check-Malware
 Show-ProgressBar -Activity "Activating Windows..." -Seconds 5
 
