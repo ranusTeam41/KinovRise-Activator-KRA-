@@ -7,9 +7,8 @@ function Show-ProgressBar {
     Write-Progress -Activity $Activity -Completed
 }
 
-# Kiểm tra malware
 function Check-Malware {
-    Write-Host "Malware scan in progress..." -ForegroundColor Yellow
+    Write-Host "Đang quét malware..." -ForegroundColor Yellow
     $malwareIndicators = @(
         "AutoKMS.exe", "KMSpico.exe", "kmsauto.exe",
         "C:\Windows\Temp\kmsauto.log",
@@ -17,18 +16,18 @@ function Check-Malware {
     )
     foreach ($item in $malwareIndicators) {
         if (Test-Path $item -or (Get-Process -ErrorAction SilentlyContinue | Where-Object { $_.ProcessName -eq [System.IO.Path]::GetFileNameWithoutExtension($item) })) {
-            Write-Host "Warning: Potential malware detected ($item). Activation aborted." -ForegroundColor Red
+            Write-Host "Phát hiện malware ($item). Hủy kích hoạt." -ForegroundColor Red
             pause
             exit
         }
     }
-    Write-Host "No malware detected. Proceeding with activation..." -ForegroundColor Green
+    Write-Host "Không phát hiện malware, bắt đầu kích hoạt..." -ForegroundColor Green
 }
 
 Check-Malware
-Show-ProgressBar -Activity "Activating Office..." -Seconds 5
+Show-ProgressBar -Activity "Đang kích hoạt Office..." -Seconds 5
 
-Write-Host "Checking for installed Office..." -ForegroundColor Yellow
+Write-Host "Đang kiểm tra Office đã cài đặt..." -ForegroundColor Yellow
 
 $officePaths = @(
     "C:\Program Files\Microsoft Office\Office16",
@@ -46,7 +45,7 @@ foreach ($path in $officePaths) {
 }
 
 if (-not $ospp) {
-    Write-Host "Office not found or unsupported version." -ForegroundColor Red
+    Write-Host "Không tìm thấy Office hoặc không hỗ trợ." -ForegroundColor Red
     pause
     exit
 }
@@ -54,14 +53,15 @@ if (-not $ospp) {
 $status = cscript.exe //nologo $ospp /dstatus | Select-String "RETAIL"
 
 if ($status) {
-    Write-Host "Retail Office detected. Activating..." -ForegroundColor Yellow
-    cscript.exe //nologo $ospp /unpkey:XXXXX
-    cscript.exe //nologo $ospp /inpkey:FXYTK-NJJ8C-GB6DW-3DYQT-6F7TH
-    cscript.exe //nologo $ospp /sethst:kms.tsforge.net
-    cscript.exe //nologo $ospp /act
-    Write-Host "`nOffice Activation Status:"
+    Write-Host "Đã phát hiện Office Retail. Đang kích hoạt..." -ForegroundColor Yellow
+    # KHÔNG hiện lệnh, chỉ thông báo tiến trình
+    cscript.exe //nologo $ospp /unpkey:XXXXX | Out-Null
+    cscript.exe //nologo $ospp /inpkey:FXYTK-NJJ8C-GB6DW-3DYQT-6F7TH | Out-Null
+    cscript.exe //nologo $ospp /sethst:kms.tsforge.net | Out-Null
+    cscript.exe //nologo $ospp /act | Out-Null
+    Write-Host "`nTrạng thái kích hoạt Office:"
     cscript.exe //nologo $ospp /dstatus
 } else {
-    Write-Host "Office is either already activated or not Retail." -ForegroundColor Green
+    Write-Host "Office đã kích hoạt hoặc không phải bản Retail." -ForegroundColor Green
 }
 pause
