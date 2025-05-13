@@ -29,10 +29,9 @@ Note: The license will be renewed for 180 days when the user activates, then it 
 
 ### Not supporting versions
 Some versions are not supported: updating !!
+### Testing KinovRise
+https://github.com/user-attachments/assets/cff9c68c-c3ac-430e-a0d5-fb657a04dea5
 
-<p align="center">From RanusTeam : Made with Love ❤️</p>
-
-<h1 align="center">KinovRise Activator 1.0 </h1>
 <h1 align="center">Readme : VN </h1>
 
 <p align="center">KinovRise là dự án của chúng tôi giúp bạn kích hoạt Windows và Office nhanh nhất có thể, miễn phí, kích hoạt nhiều máy tính, dễ sử dụng, an toàn, không có phần mềm độc hại.</p>
@@ -61,5 +60,7 @@ Lưu ý: Giấy phép sẽ được gia hạn trong 180 ngày khi người dùng
 
 ### Không hỗ trợ các phiên bản
 Một số phiên bản không được hỗ trợ: đang cập nhật !!
+### Thử nghiệm KinovRise Activator
+https://github.com/user-attachments/assets/cff9c68c-c3ac-430e-a0d5-fb657a04dea5
 
 <p align="center">Từ RanusTeam : Làm bằng cả trái tim ❤️</p>
