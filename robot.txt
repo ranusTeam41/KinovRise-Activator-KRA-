@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://github.com/ranusTeam41/KinovRise-Activator-KRA-/sitemap.xml
