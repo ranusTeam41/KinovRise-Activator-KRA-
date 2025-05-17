@@ -28,5 +28,9 @@ Note: The license will be renewed for 180 days when the user activates, then it 
 Some versions are not supported: updating !!
 ### Testing KinovRise
 https://github.com/user-attachments/assets/cff9c68c-c3ac-430e-a0d5-fb657a04dea5
-
-<p align="center">Từ RanusTeam : Làm bằng cả trái tim ❤️</p>
+### Credits 
+Project creator: TivinovDEv (https://github.com/TivinovDEv)
+- Support: ranusTeam41
+- If you have the heart, please help the software to develop and become more popular!
+Information at: ranusTeam41.github.io/ranusteam.github.io
+<p align="center">Made with love ❤️</p>
