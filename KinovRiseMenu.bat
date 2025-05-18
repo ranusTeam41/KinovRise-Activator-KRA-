@@ -1,11 +1,12 @@
 @echo off
+chcp 65001
 :MENU
 cls
 echo -------------------------------------------
 echo      Activate license type 
 echo   [1] Activate- Windows
 echo   [2] Activate- Office
-echo   Đây là khoảng trắng Unicode rộng.
+echo   Đây là khoảng trắng rộng Unicode.
 echo -------------------------------------------
 echo      Others
 echo   [3] Exit
