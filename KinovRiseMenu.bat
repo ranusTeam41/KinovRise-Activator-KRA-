@@ -1,16 +1,14 @@
 @echo off
-chcp 65001
 :MENU
 cls
 echo -------------------------------------------
-echo   Activate license type 
+echo Activate license type 
 echo [1] Activate- Windows
 echo [2] Activate- Office
 echo -------------------------------------------
-echo   Others
+echo Others
 echo [3] Exit
 echo ============================================
-color 0A 
 set /p choice= Select 1 of 3 functions ( 1 , 2 ,3 ) :
 
 if "%choice%"=="1" (
