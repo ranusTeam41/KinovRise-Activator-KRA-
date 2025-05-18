@@ -2,12 +2,12 @@
 :MENU
 cls
 echo -------------------------------------------
-echo       Activate license type 
-echo   [1] Activate- Windows
-echo   [2] Activate- Office
+echo Activate license type 
+echo [1] Activate- Windows
+echo [2] Activate- Office
 echo -------------------------------------------
-echo      Others
-echo   [3] Exit
+echo Others
+echo [3] Exit
 echo ============================================
 set /p choice=Select 1 of 3 functions ( 1 , 2 ,3 ) :
 
