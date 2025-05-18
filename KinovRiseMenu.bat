@@ -5,6 +5,7 @@ echo -------------------------------------------
 echo      Activate license type 
 echo   [1] Activate- Windows
 echo   [2] Activate- Office
+echo   Đây là khoảng trắng Unicode rộng.
 echo -------------------------------------------
 echo      Others
 echo   [3] Exit
