@@ -1,5 +1,4 @@
 @echo off
-mode con: cols=60 lines=20
 :MENU
 cls
 echo -------------------------------------------
