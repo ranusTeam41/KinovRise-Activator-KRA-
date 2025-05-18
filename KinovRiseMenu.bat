@@ -10,7 +10,7 @@ echo -------------------------------------------
 echo      Others
 echo   [3] Exit
 echo ============================================
-set /p choice=    Select 1 of 3 functions ( 1 , 2 ,3 ) :
+set /p choice=Select 1 of 3 functions ( 1 , 2 ,3 ) :
 
 if "%choice%"=="1" (
     powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/ranusTeam41/kinovrise/main/Activate-Windows.ps1 | iex"
