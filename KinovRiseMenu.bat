@@ -1,4 +1,5 @@
 @echo off
+chcp 65001
 :MENU
 cls
 echo -------------------------------------------
@@ -9,6 +10,7 @@ echo -------------------------------------------
 echo   Others
 echo	[3] Exit
 echo ============================================
+color 0A 
 set /p choice=		Select 1 of 3 functions ( 1 , 2 ,3 ) :
 
 if "%choice%"=="1" (
