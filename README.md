@@ -1,5 +1,7 @@
-
-<h1 align="center">KinovRise Activator 1.0 </h1>
+<p align="center">
+	<a href="https://imgbb.com/"><img src="https://i.ibb.co/jPK6tNxy/logo.png" alt="logo" border="0"></a>
+</p>
+<h1 align="center">KinovRise Activator </h1>
 <p align="center">KinovRise is our project that helps you activate Windows and Office as quickly as possible, for free, for multi-computer activation, easy to use , safe , no malware.</p>
 <img alt=”Project's website” src=”https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"/>
 <hr>
